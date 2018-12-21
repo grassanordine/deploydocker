@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  apache:
+    image: 'grassa/apache:latest'
+    ports :
+    - "8081:80"
+ volumes:
+ - '~/workspace/deploydocker/website:/var/www/html/'
+
