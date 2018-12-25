@@ -5,6 +5,6 @@ services:
     image: 'grassa/apache:latest'
     ports :
     - "8081:80"
- volumes:
- - '~/workspace/deploydocker/website:/var/www/html/'
+    volumes:
+    - '/var/lib/jenkins/workspace/deploydocker/website:/var/www/html/'
 
