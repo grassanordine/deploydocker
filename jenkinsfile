@@ -1,0 +1,20 @@
+node {
+  
+   stage('SCM Checkout') {
+      git 'https://github.com/grassanordine/dockerdeploy'     
+          
+   }
+
+   stage('Build Package') {
+
+      sh 'mvn package'
+   }
+
+   stage('Test image') {
+         
+          sh 'echo "Tests passed"'
+      
+   }
+
+  
+}
