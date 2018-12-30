@@ -1,16 +1,10 @@
 node {
    def mvnHome
    stage('Preparation') { // for display purposes
-      // Get some code from a GitHub repository
-   //   git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-      git 'https://github.com/grassanordine/deploydocker'
- 
-     // Get the Maven tool.
-      // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.           
-    //  mvnHome = tool 'M3'
-    mvnHome = tool name: '3.0.6', type: 'maven'
-  }
+   
+      git 'https://github.com/grassanordine/deploydocker.git         
+      mvnHome = tool 'maven'
+   }
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
@@ -20,8 +14,6 @@ node {
       }
    }
    stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
+       sh "echo passed test"
    }
 }
-
